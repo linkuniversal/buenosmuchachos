@@ -1,1 +1,1907 @@
-BUENOS MUCHACHOS
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Buenos Muchachos | Parrilla y Ahumados · Monte Grande</title>
+    <meta name="description" content="La mejor selección de carnes. Menú libre por pasos o a la carta en Enrique Santamarina 241, Monte Grande. También Para llevar - Take Away en Dardo Rocha 1484.">
+
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- PRELOAD LOGO PRINCIPAL -->
+    <link rel="preload" as="image" href="./logo_buenos_muchachos.webp">
+
+    <!-- TIPOGRAFÍAS: OSWALD (CARTELERÍA Y PRECIOS) + PLAYFAIR DISPLAY (FILETEADO) + PLUS JAKARTA SANS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. ADN CROMÁTICO OFICIAL: BUENOS MUCHACHOS (BRASA, CARBÓN & FILETEADO)
+           ========================================================================== */
+        :root {
+            --bm-black: #000000;
+            --bm-charcoal: #0B0807;
+            --bm-iron: #14100E;
+            --bm-iron-elevated: #1D1613;
+
+            --bm-red: #FD1F01;
+            --bm-orange: #FD9202;
+            --bm-amber: #FDC202;
+            --bm-yellow: #FFD502;
+            --bm-gold: #E7BD0D;
+
+            --bm-white: #FFFFFF;
+            --bm-smoke: #EDE5DC;
+            --bm-muted: #B6A698;
+
+            --border-gold: rgba(231, 189, 13, 0.34);
+            --border-ember: rgba(253, 146, 2, 0.42);
+            --glow-ember: 0 18px 42px -10px rgba(253, 31, 1, 0.35), 0 6px 20px rgba(253, 146, 2, 0.18);
+            --shadow-card: 0 14px 36px rgba(0, 0, 0, 0.65);
+
+            --font-sign: 'Oswald', Impact, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --spring: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ==========================================================================
+           2. RESET & BLINDAJE EXTREMO PARA INSTAGRAM / WHATSAPP WEBVIEW
+           ========================================================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: var(--bm-black);
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+            overflow-x: clip;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bm-black);
+            color: var(--bm-smoke);
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 0 calc(84px + env(safe-area-inset-bottom, 0px));
+            overflow-x: hidden;
+            overflow-x: clip;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           3. ESCENOGRAFÍA NOCTURNA DE PARRILLA (PIZARRA, RESPLANDOR DE BRASA Y PAVESAS)
+           ========================================================================== */
+        .ember-backdrop-stage {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 85% 42% at 50% 102%, rgba(253, 31, 1, 0.24) 0%, rgba(253, 146, 2, 0.14) 45%, transparent 78%),
+                radial-gradient(ellipse 70% 35% at 50% 12%, rgba(253, 194, 2, 0.12) 0%, rgba(253, 146, 2, 0.05) 55%, transparent 80%),
+                linear-gradient(180deg, #000000 0%, #090605 55%, #120906 100%);
+        }
+
+        /* Trama sutil de chapa / hierro forjado */
+        .iron-grain-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.06;
+            background-image:
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 0 1px, transparent 1px 16px),
+                repeating-linear-gradient(-45deg, rgba(253, 146, 2, 0.18) 0 1px, transparent 1px 16px);
+        }
+
+        #emberCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.72;
+        }
+
+        /* ==========================================================================
+           4. MARQUESINA SUPERIOR NARANJA BRASA (ANCHO 100% SIN DESBORDES)
+           ========================================================================== */
+        .top-fire-ticker {
+            width: 100%;
+            background: linear-gradient(90deg, #C72300 0%, #FD1F01 25%, #FD9202 75%, #C72300 100%);
+            color: var(--bm-white);
+            border-bottom: 1.5px solid var(--bm-amber);
+            overflow: hidden;
+            padding: 8px 0;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 6px 22px rgba(253, 31, 1, 0.32);
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            white-space: nowrap;
+            will-change: transform;
+            animation: tickerSlide 28s linear infinite;
+        }
+
+        .ticker-track span {
+            font-family: var(--font-sign);
+            font-size: clamp(0.74rem, 2.4vw, 0.84rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding-right: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        }
+
+        .ticker-spark {
+            color: var(--bm-yellow);
+            font-size: 0.75em;
+        }
+
+        @keyframes tickerSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ==========================================================================
+           5. CONTENEDOR MAESTRO RESPONSIVO (MÓVIL, TABLET Y PC)
+           ========================================================================== */
+        .hub-shell {
+            width: 100%;
+            max-width: 520px;
+            padding: clamp(14px, 3vw, 24px) clamp(12px, 3.5vw, 18px) 0;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(14px, 3vw, 18px);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ==========================================================================
+           6. ESCENARIO HERO DEL LOGO FILETEADO
+           ========================================================================== */
+        .logo-altar-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            padding: 4px 0 2px;
+        }
+
+        .logo-glow-stage {
+            width: 100%;
+            max-width: clamp(240px, 76vw, 355px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+        }
+
+        .logo-glow-stage::before {
+            content: '';
+            position: absolute;
+            inset: 10% 6%;
+            background: radial-gradient(ellipse at center, rgba(253, 194, 2, 0.28) 0%, rgba(253, 146, 2, 0.16) 45%, transparent 75%);
+            filter: blur(22px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .brand-logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.85));
+            transition: transform 0.35s var(--spring);
+        }
+
+        .logo-glow-stage:hover .brand-logo-img {
+            transform: scale(1.025);
+        }
+
+        .status-live-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(20, 16, 14, 0.92);
+            border: 1px solid var(--border-gold);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: clamp(0.68rem, 2.3vw, 0.74rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--bm-amber);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+            max-width: 100%;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: #25D366;
+            box-shadow: 0 0 8px #25D366;
+            animation: pulseDot 1.8s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.72); opacity: 0.5; }
+        }
+
+        .human-claim-box {
+            background: linear-gradient(180deg, rgba(22, 16, 13, 0.92) 0%, rgba(12, 9, 8, 0.96) 100%);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: clamp(14px, 3.5vw, 18px) clamp(14px, 4vw, 20px);
+            width: 100%;
+            position: relative;
+            box-shadow: var(--shadow-card);
+        }
+
+        /* Esquinas fileteadas sutiles */
+        .ornament-corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-color: var(--bm-gold);
+            pointer-events: none;
+            opacity: 0.75;
+        }
+        .oc-tl { top: 7px; left: 7px; border-top: 2px solid; border-left: 2px solid; border-top-left-radius: 4px; }
+        .oc-tr { top: 7px; right: 7px; border-top: 2px solid; border-right: 2px solid; border-top-right-radius: 4px; }
+        .oc-bl { bottom: 7px; left: 7px; border-bottom: 2px solid; border-left: 2px solid; border-bottom-left-radius: 4px; }
+        .oc-br { bottom: 7px; right: 7px; border-bottom: 2px solid; border-right: 2px solid; border-bottom-right-radius: 4px; }
+
+        .claim-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.18rem, 4.4vw, 1.48rem);
+            font-weight: 700;
+            color: var(--bm-white);
+            line-height: 1.2;
+        }
+
+        .claim-title span {
+            color: var(--bm-amber);
+        }
+
+        .claim-sub {
+            font-size: clamp(0.78rem, 2.7vw, 0.86rem);
+            color: var(--bm-smoke);
+            line-height: 1.45;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .highlights-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .highlight-tag {
+            font-size: clamp(0.66rem, 2.2vw, 0.72rem);
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(253, 146, 2, 0.14);
+            border: 1px solid rgba(253, 194, 2, 0.35);
+            color: var(--bm-yellow);
+            white-space: nowrap;
+        }
+
+        /* ==========================================================================
+           7. HERO CTA RESERVAS WHATSAPP + BOTÓN TAKE AWAY
+           ========================================================================== */
+        .cta-actions-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .hero-reserve-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: clamp(16px, 4vw, 20px) clamp(15px, 4vw, 20px);
+            border-radius: 20px;
+            background: linear-gradient(135deg, #FD1F01 0%, #DF3A00 45%, #FD9202 100%);
+            border: 2px solid var(--bm-yellow);
+            color: var(--bm-white);
+            text-decoration: none;
+            box-shadow: var(--glow-ember);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s var(--spring), box-shadow 0.25s ease;
+        }
+
+        .hero-reserve-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+            transform: skewX(-24deg);
+            animation: emberSheen 5.5s ease-in-out infinite;
+        }
+
+        @keyframes emberSheen {
+            0%, 55% { left: -120%; }
+            85%, 100% { left: 185%; }
+        }
+
+        .hero-reserve-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 48px -8px rgba(253, 31, 1, 0.55);
+        }
+
+        .hero-btn-texts {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            min-width: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-kicker {
+            font-family: var(--font-sign);
+            font-size: clamp(0.68rem, 2.3vw, 0.76rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bm-yellow);
+        }
+
+        .hero-headline {
+            font-family: var(--font-sign);
+            font-size: clamp(1.32rem, 5vw, 1.65rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .hero-meta {
+            font-size: clamp(0.73rem, 2.5vw, 0.80rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .wa-circle-badge {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            transition: transform 0.3s var(--spring);
+        }
+
+        .hero-reserve-btn:hover .wa-circle-badge {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .wa-circle-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* DOS TARJETAS SECUNDARIAS: SALÓN VS PARA LLEVAR */
+        .dual-branch-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            width: 100%;
+        }
+
+        .branch-card {
+            background: var(--bm-iron);
+            border: 1.5px solid var(--border-gold);
+            border-radius: 18px;
+            padding: 14px 13px;
+            text-decoration: none;
+            color: var(--bm-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 8px;
+            min-width: 0;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s var(--spring);
+        }
+
+        .branch-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--bm-orange);
+            background: var(--bm-iron-elevated);
+        }
+
+        .branch-card.takeaway {
+            border-left: 4px solid var(--bm-red);
+        }
+
+        .branch-card.salon {
+            border-left: 4px solid var(--bm-amber);
+        }
+
+        .branch-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .branch-badge {
+            font-family: var(--font-sign);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(253, 31, 1, 0.22);
+            border: 1px solid rgba(253, 31, 1, 0.45);
+            color: #FFD7CE;
+        }
+
+        .branch-card.salon .branch-badge {
+            background: rgba(253, 194, 2, 0.16);
+            border-color: rgba(253, 194, 2, 0.42);
+            color: var(--bm-yellow);
+        }
+
+        .branch-title {
+            font-family: var(--font-sign);
+            font-size: clamp(1rem, 3.6vw, 1.15rem);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+        }
+
+        .branch-addr {
+            font-size: 0.74rem;
+            color: var(--bm-muted);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* ==========================================================================
+           8. PIZARRA PRINCIPAL: MENÚ LIBRE POR PASOS (PRECIOS + QUÉ INCLUYE)
+           ========================================================================== */
+        .menu-libre-board {
+            background: linear-gradient(165deg, #17100C 0%, #0C0806 100%);
+            border: 2px solid var(--bm-orange);
+            border-radius: 24px;
+            padding: clamp(18px, 4vw, 22px) clamp(14px, 3.8vw, 18px);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .board-ribbon-tag {
+            align-self: center;
+            background: linear-gradient(90deg, var(--bm-red) 0%, var(--bm-orange) 100%);
+            color: var(--bm-white);
+            font-family: var(--font-sign);
+            font-size: clamp(0.74rem, 2.5vw, 0.84rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--bm-yellow);
+        }
+
+        .board-heading-wrap {
+            text-align: center;
+        }
+
+        .board-title {
+            font-family: var(--font-sign);
+            font-size: clamp(1.5rem, 6vw, 1.95rem);
+            text-transform: uppercase;
+            color: var(--bm-white);
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+        }
+
+        .board-subtitle {
+            font-size: clamp(0.78rem, 2.6vw, 0.86rem);
+            color: var(--bm-amber);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        /* PRECIOS GIGANTES */
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1.5px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 13px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            min-width: 0;
+        }
+
+        .price-card.featured-cash {
+            background: linear-gradient(180deg, rgba(253, 146, 2, 0.24) 0%, rgba(253, 31, 1, 0.16) 100%);
+            border: 2px solid var(--bm-yellow);
+        }
+
+        .price-label {
+            font-family: var(--font-sign);
+            font-size: clamp(0.72rem, 2.5vw, 0.82rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bm-yellow);
+        }
+
+        .price-amount {
+            font-family: var(--font-sign);
+            font-size: clamp(1.9rem, 7vw, 2.4rem);
+            font-weight: 700;
+            color: var(--bm-white);
+            line-height: 1;
+        }
+
+        .price-method {
+            font-size: 0.70rem;
+            font-weight: 700;
+            color: var(--bm-smoke);
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+
+        .price-kids-bar {
+            background: rgba(253, 194, 2, 0.10);
+            border: 1px dashed var(--bm-gold);
+            border-radius: 14px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .kids-text {
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--bm-white);
+        }
+
+        .kids-price {
+            font-family: var(--font-sign);
+            font-size: 1.25rem;
+            color: var(--bm-yellow);
+            letter-spacing: 0.03em;
+        }
+
+        .price-disclaimer {
+            text-align: center;
+            font-size: 0.68rem;
+            color: var(--bm-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* QUÉ TE INCLUYE */
+        .includes-box {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(253, 146, 2, 0.28);
+            border-radius: 16px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .includes-banner {
+            align-self: center;
+            background: var(--bm-yellow);
+            color: var(--bm-black);
+            font-family: var(--font-sign);
+            font-size: 0.88rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 14px;
+            border-radius: 6px;
+        }
+
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: clamp(0.78rem, 2.7vw, 0.84rem);
+            font-weight: 700;
+            color: var(--bm-white);
+            line-height: 1.35;
+        }
+
+        .step-num {
+            font-family: var(--font-sign);
+            font-size: 0.76rem;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(253, 146, 2, 0.22);
+            border: 1px solid var(--bm-orange);
+            color: var(--bm-yellow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .alacarte-note {
+            text-align: center;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--bm-amber);
+            border-top: 1px dashed rgba(231, 189, 13, 0.25);
+            padding-top: 10px;
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           9. REELS DE LA PARRILLA & CENA SHOW (3 MP4 LOCALES)
+           ========================================================================== */
+        .media-showcase-card {
+            background: var(--bm-iron);
+            border: 1.5px solid var(--border-gold);
+            border-radius: 24px;
+            padding: clamp(16px, 4vw, 20px) clamp(12px, 3.5vw, 16px);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .section-head-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 0 4px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.22rem, 4.4vw, 1.42rem);
+            font-weight: 700;
+            color: var(--bm-white);
+            line-height: 1.1;
+        }
+
+        .section-sub {
+            font-size: 0.74rem;
+            color: var(--bm-muted);
+            font-weight: 500;
+            margin-top: 3px;
+            display: block;
+        }
+
+        .section-link {
+            font-family: var(--font-sign);
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bm-amber);
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .reels-strip {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2px 2px 8px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .reels-strip::-webkit-scrollbar { display: none; }
+
+        .reel-card {
+            flex: 0 0 clamp(210px, 66vw, 250px);
+            height: clamp(315px, 84vw, 375px);
+            scroll-snap-align: start;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: #000000;
+            border: 1.5px solid var(--border-ember);
+        }
+
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .reel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.90) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 12px;
+            pointer-events: none;
+        }
+
+        .reel-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .reel-tag {
+            background: rgba(253, 31, 1, 0.85);
+            color: #FFFFFF;
+            font-family: var(--font-sign);
+            font-size: 0.66rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 213, 2, 0.6);
+        }
+
+        .reel-mute-btn {
+            pointer-events: auto;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .reel-mute-btn:hover {
+            transform: scale(1.08);
+            background: var(--bm-orange);
+            border-color: var(--bm-yellow);
+        }
+
+        .reel-caption {
+            font-size: 0.80rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.3;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* ==========================================================================
+           10. GALERÍA DE FOTOS REALES (7 WEBP + LIGHTBOX FULLSCREEN)
+           ========================================================================== */
+        .photos-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2px 2px 6px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .photos-strip::-webkit-scrollbar { display: none; }
+
+        .photo-thumb-card {
+            flex: 0 0 clamp(152px, 46vw, 178px);
+            height: clamp(168px, 48vw, 195px);
+            scroll-snap-align: start;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            border: 1.5px solid var(--border-gold);
+            background: #000000;
+            cursor: pointer;
+            transition: transform 0.25s var(--spring), border-color 0.25s ease;
+        }
+
+        .photo-thumb-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--bm-yellow);
+        }
+
+        .photo-thumb-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-thumb-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .photo-thumb-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 18px 9px 8px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.90) 100%);
+            font-size: 0.70rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.2;
+        }
+
+        /* ==========================================================================
+           11. HORARIOS EN VIVO + MAPA DUAL (SALÓN / TAKE AWAY)
+           ========================================================================== */
+        .hours-card {
+            background: var(--bm-iron);
+            border: 1.5px solid var(--border-gold);
+            border-radius: 22px;
+            padding: clamp(16px, 4vw, 20px) clamp(14px, 3.8vw, 18px);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hours-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hours-badge {
+            font-family: var(--font-sign);
+            font-size: 0.74rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 11px;
+            border-radius: 999px;
+            border: 1px solid currentColor;
+        }
+
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border-top: 1px dashed rgba(231, 189, 13, 0.25);
+            padding-top: 10px;
+        }
+
+        .hours-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: clamp(0.76rem, 2.6vw, 0.84rem);
+            color: var(--bm-muted);
+        }
+
+        .hours-row.today {
+            color: var(--bm-yellow);
+            font-weight: 800;
+        }
+
+        .hours-time {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* MAPA DUAL */
+        .map-card {
+            background: var(--bm-iron);
+            border: 1.5px solid var(--border-gold);
+            border-radius: 22px;
+            padding: clamp(16px, 4vw, 20px) clamp(14px, 3.8vw, 18px);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .map-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .map-tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-gold);
+            color: var(--bm-smoke);
+            padding: 9px 8px;
+            border-radius: 12px;
+            font-family: var(--font-sign);
+            font-size: clamp(0.72rem, 2.5vw, 0.82rem);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.22s var(--spring);
+        }
+
+        .map-tab-btn.active {
+            background: linear-gradient(135deg, var(--bm-red) 0%, var(--bm-orange) 100%);
+            color: #FFFFFF;
+            border-color: var(--bm-yellow);
+        }
+
+        .map-address-line {
+            font-size: 0.78rem;
+            color: var(--bm-smoke);
+            font-weight: 600;
+        }
+
+        .map-viewport {
+            width: 100%;
+            height: 215px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            background: #14100E;
+        }
+
+        .map-viewport iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .map-gps-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(253, 194, 2, 0.12);
+            border: 1px solid var(--border-gold);
+            padding: 11px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--bm-yellow);
+            font-size: 0.78rem;
+            font-weight: 800;
+            transition: all 0.2s ease;
+        }
+
+        .map-gps-btn:hover {
+            background: var(--bm-orange);
+            color: #FFFFFF;
+            border-color: var(--bm-yellow);
+        }
+
+        /* ==========================================================================
+           12. REDES OFICIALES & CIERRE HUMANO AUTÉNTICO
+           ========================================================================== */
+        .social-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 999px;
+            background: var(--bm-iron);
+            border: 1.5px solid var(--border-gold);
+            color: var(--bm-white);
+            text-decoration: none;
+            font-size: 0.76rem;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+            transition: all 0.24s var(--spring);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--bm-yellow);
+            background: linear-gradient(135deg, var(--bm-red) 0%, var(--bm-orange) 100%);
+        }
+
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .dream-footer {
+            margin-top: 6px;
+            padding: 20px 14px 10px;
+            border-top: 1px dashed rgba(231, 189, 13, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .dream-quote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(0.95rem, 3.2vw, 1.08rem);
+            color: var(--bm-smoke);
+            line-height: 1.45;
+            max-width: 420px;
+        }
+
+        .footer-brand {
+            font-family: var(--font-sign);
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            color: var(--bm-amber);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .footer-meta {
+            font-size: 0.70rem;
+            color: var(--bm-muted);
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           13. BOTÓN FLOTANTE SMART-SCROLL WHATSAPP
+           ========================================================================== */
+        .floating-wa-wrap {
+            position: fixed;
+            bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+            right: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 900;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s var(--spring);
+        }
+
+        .floating-wa-wrap.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .floating-wa-pill {
+            background: var(--bm-black);
+            color: var(--bm-yellow);
+            border: 1.5px solid var(--bm-yellow);
+            font-family: var(--font-sign);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 999px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65);
+        }
+
+        .floating-wa-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+            transition: transform 0.25s var(--spring);
+        }
+
+        .floating-wa-wrap:hover .floating-wa-circle {
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        .floating-wa-circle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           14. LIGHTBOX FULLSCREEN PARA VER FOTOS ENTERAS
+           ========================================================================== */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-card {
+            width: 100%;
+            max-width: 520px;
+            background: var(--bm-iron);
+            border: 1.5px solid var(--bm-gold);
+            border-radius: 22px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(231, 189, 13, 0.2);
+        }
+
+        .lightbox-counter {
+            font-family: var(--font-sign);
+            font-size: 0.84rem;
+            letter-spacing: 0.08em;
+            color: var(--bm-yellow);
+        }
+
+        .lightbox-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(253, 31, 1, 0.22);
+            border: 1px solid var(--bm-red);
+            color: #FFFFFF;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-media {
+            width: 100%;
+            height: 62vh;
+            max-height: 500px;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .lightbox-media img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .lb-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.78);
+            border: 1.5px solid var(--bm-amber);
+            color: var(--bm-yellow);
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lb-prev { left: 10px; }
+        .lb-next { right: 10px; }
+
+        .lightbox-caption {
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--bm-white);
+            border-top: 1px solid rgba(231, 189, 13, 0.2);
+        }
+
+        /* ==========================================================================
+           15. MEDIA QUERIES PARA ADAPTACIÓN PERFECTA (PC, TABLET Y WEBVIEW MINI)
+           ========================================================================== */
+        @media (min-width: 768px) {
+            .hub-shell {
+                max-width: 560px;
+                gap: 20px;
+            }
+            .logo-glow-stage {
+                max-width: 370px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .dual-branch-grid,
+            .prices-grid,
+            .map-tabs {
+                grid-template-columns: 1fr;
+            }
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .reel-card {
+                flex: 0 0 82vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FONDO NOCTURNO DE BRASA Y PAVESAS EN GPU -->
+    <div class="ember-backdrop-stage" aria-hidden="true"></div>
+    <div class="iron-grain-layer" aria-hidden="true"></div>
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+
+    <!-- MARQUESINA SUPERIOR -->
+    <div class="top-fire-ticker" aria-label="Destacados Buenos Muchachos">
+        <div class="ticker-track">
+            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i> SOLO PARA LLEVAR: DARDO ROCHA 1484 <i class="ticker-spark">✦</i></span>
+            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i> SOLO PARA LLEVAR: DARDO ROCHA 1484 <i class="ticker-spark">✦</i></span>
+        </div>
+    </div>
+
+    <main class="hub-shell">
+
+        <!-- 1. LOGO PROTAGONISTA & PRESENTACIÓN REAL -->
+        <header class="logo-altar-header">
+            <div class="logo-glow-stage">
+                <img
+                    src="./logo_buenos_muchachos.webp"
+                    alt="Buenos Muchachos | Parrilla y Ahumados"
+                    class="brand-logo-img"
+                    decoding="async"
+                >
+            </div>
+
+            <div class="status-live-pill" id="liveStatusPill">
+                <span class="live-dot" id="liveDot"></span>
+                <span id="liveStatusText">Comprobando horario en Monte Grande...</span>
+            </div>
+
+            <div class="human-claim-box">
+                <span class="ornament-corner oc-tl"></span>
+                <span class="ornament-corner oc-tr"></span>
+                <span class="ornament-corner oc-bl"></span>
+                <span class="ornament-corner oc-br"></span>
+
+                <h1 class="claim-title">🔥 La mejor selección de <span>carnes</span></h1>
+                <p class="claim-sub">
+                    Una parrilla con menú libre ! El paraíso para los amantes del buen comer. Ideal para los que disfrutan comer rico , abundante y sin apuro.
+                </p>
+
+                <div class="highlights-pills-row">
+                    <span class="highlight-tag">🎉 Sábados Cena Show</span>
+                    <span class="highlight-tag">☀️ Domingos Mediodía y Noche</span>
+                    <span class="highlight-tag">🛍️ Take Away</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. HERO CTA WHATSAPP RESERVAS + ACCESOS SALÓN / PARA LLEVAR -->
+        <section class="cta-actions-stack" id="heroReserveAnchor">
+            <a href="https://wa.me/5491121753489?text=Hola%20Buenos%20Muchachos!%20Quisiera%20hacer%20una%20reserva." target="_blank" rel="noopener noreferrer" class="hero-reserve-btn" onclick="playHaptic()">
+                <div class="hero-btn-texts">
+                    <span class="hero-kicker">Atendemos SOLO CON RESERVAS</span>
+                    <h2 class="hero-headline">Reservar por WhatsApp</h2>
+                    <span class="hero-meta">+54 9 11 2175-3489 · Enrique Santamarina 241, Monte Grande</span>
+                </div>
+                <div class="wa-circle-badge" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </div>
+            </a>
+
+            <div class="dual-branch-grid">
+                <a href="https://wa.me/5491121753489?text=Hola!%20Quiero%20pedir%20Para%20Llevar%20-%20Take%20Away." target="_blank" rel="noopener noreferrer" class="branch-card takeaway" onclick="playHaptic()">
+                    <div class="branch-top">
+                        <span class="branch-badge">🚨 Solo para llevar</span>
+                        <span style="color:var(--bm-amber); font-weight:800;">↗</span>
+                    </div>
+                    <div>
+                        <h3 class="branch-title">Take Away</h3>
+                        <p class="branch-addr">Dardo Rocha 1484, Monte Grande</p>
+                    </div>
+                </a>
+
+                <a href="tel:+5491121753489" class="branch-card salon" onclick="playHaptic()">
+                    <div class="branch-top">
+                        <span class="branch-badge">📞 Teléfono</span>
+                        <span style="color:var(--bm-amber); font-weight:800;">↗</span>
+                    </div>
+                    <div>
+                        <h3 class="branch-title">011 15-2175-3489</h3>
+                        <p class="branch-addr">Enrique Santamarina 241, Monte Grande</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. PIZARRA MENÚ LIBRE POR PASOS (PRECIOS + QUÉ INCLUYE LITERAL) -->
+        <section class="menu-libre-board" aria-label="Menú Libre por Pasos">
+            <span class="board-ribbon-tag">Menú Libre por Pasos o a la Carta</span>
+
+            <div class="board-heading-wrap">
+                <h2 class="board-title">Comés la cantidad que quieras</h2>
+                <p class="board-subtitle">y podés repetir</p>
+            </div>
+
+            <div class="prices-grid">
+                <div class="price-card featured-cash">
+                    <span class="price-label">Promo Contado</span>
+                    <span class="price-amount">$33.000</span>
+                    <span class="price-method">Abonando el total al contado · Efectivo</span>
+                </div>
+
+                <div class="price-card">
+                    <span class="price-label">Menú Libre</span>
+                    <span class="price-amount">$40.000</span>
+                    <span class="price-method">Con todos los medios de pago</span>
+                </div>
+            </div>
+
+            <div class="price-kids-bar">
+                <span class="kids-text">Menores entre 5 y 10 años</span>
+                <span class="kids-price">$10.000</span>
+            </div>
+
+            <p class="price-disclaimer">(Precio x persona - no incluye bebida)</p>
+
+            <div class="includes-box">
+                <span class="includes-banner">¿Qué te incluye?</span>
+                <ol class="steps-list">
+                    <li class="step-item"><span class="step-num">1</span><span>PICADA DE FIAMBRES</span></li>
+                    <li class="step-item"><span class="step-num">2</span><span>EMPANADAS DE VACÍO Y QUESO</span></li>
+                    <li class="step-item"><span class="step-num">3</span><span>TORTILLA DE PAPAS, ENSALADAS Y FRITAS</span></li>
+                    <li class="step-item"><span class="step-num">4</span><span>ACHURAS, MATAMBRE A LA PIZZA Y AHUMADOS</span></li>
+                    <li class="step-item"><span class="step-num">5</span><span>ASADO Y VACÍO</span></li>
+                    <li class="step-item"><span class="step-num">6</span><span>POSTRE</span></li>
+                </ol>
+                <p class="alacarte-note">
+                    TAMBIÉN TENES LA OPCIÓN DE COMER A LA CARTA LO QUE QUIERAS DEL MENÚ!
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. VIDEOS DE LA PARRILLA Y CENA SHOW (3 MP4 REALES) -->
+        <section class="media-showcase-card" aria-label="Videos de Buenos Muchachos">
+            <div class="section-head-row">
+                <div>
+                    <h2 class="section-title">Si te gustan los ahumados, esto es una fiesta</h2>
+                    <span class="section-sub">Deslizá para ver la parrilla y los sábados de cena show</span>
+                </div>
+                <a href="https://www.instagram.com/buenos_muchachos.monte.grande" target="_blank" rel="noopener noreferrer" class="section-link" onclick="playHaptic()">Ver IG →</a>
+            </div>
+
+            <div class="reels-strip">
+                <article class="reel-card">
+                    <video class="reel-video" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
+                        <source src="./media%20buenos%20muchachos/videocarnes.mp4" type="video/mp4">
+                    </video>
+                    <div class="reel-overlay">
+                        <div class="reel-top-row">
+                            <span class="reel-tag">Brasa &amp; Ahumados</span>
+                            <button type="button" class="reel-mute-btn" onclick="toggleReelMute(this)" aria-label="Activar o silenciar audio">🔇</button>
+                        </div>
+                        <p class="reel-caption">🔥 La mejor selección de carnes</p>
+                    </div>
+                </article>
+
+                <article class="reel-card">
+                    <video class="reel-video" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
+                        <source src="./media%20buenos%20muchachos/videomusicaenvivo.mp4" type="video/mp4">
+                    </video>
+                    <div class="reel-overlay">
+                        <div class="reel-top-row">
+                            <span class="reel-tag">Sábados</span>
+                            <button type="button" class="reel-mute-btn" onclick="toggleReelMute(this)" aria-label="Activar o silenciar audio">🔇</button>
+                        </div>
+                        <p class="reel-caption">🎶 Los sábados tenemos cena show !</p>
+                    </div>
+                </article>
+
+                <article class="reel-card">
+                    <video class="reel-video" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
+                        <source src="./media%20buenos%20muchachos/videorestauranteadentro.mp4" type="video/mp4">
+                    </video>
+                    <div class="reel-overlay">
+                        <div class="reel-top-row">
+                            <span class="reel-tag">El Salón</span>
+                            <button type="button" class="reel-mute-btn" onclick="toggleReelMute(this)" aria-label="Activar o silenciar audio">🔇</button>
+                        </div>
+                        <p class="reel-caption">Ideal para los que disfrutan comer rico, abundante y sin apuro</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. GALERÍA REAL (7 FOTOS WEBP + LIGHTBOX) -->
+        <section class="media-showcase-card" aria-label="Galería de platos y salón">
+            <div class="section-head-row">
+                <div>
+                    <h2 class="section-title">Vacío o asado de costilla?</h2>
+                    <span class="section-sub">Tocá cualquier foto para verla completa</span>
+                </div>
+            </div>
+
+            <div class="photos-strip" id="photosStrip"></div>
+        </section>
+
+        <!-- 6. HORARIOS EN VIVO (UTC-3 ARGENTINA) -->
+        <article class="hours-card" aria-label="Horarios de atención">
+            <div class="hours-head">
+                <div>
+                    <h2 class="section-title">Horarios de Atención</h2>
+                    <span class="section-sub">Abrimos los domingos al mediodía y a la noche !</span>
+                </div>
+                <span class="hours-badge" id="hoursBadge">Comprobando...</span>
+            </div>
+
+            <div class="hours-list">
+                <div class="hours-row" id="day-thu-fri">
+                    <span>Jueves y Viernes</span>
+                    <span class="hours-time">21:00 a 23:00 hs</span>
+                </div>
+                <div class="hours-row" id="day-sat">
+                    <span>Sábados (Cena Show)</span>
+                    <span class="hours-time">12:00–15:00 | 21:00–00:00 hs</span>
+                </div>
+                <div class="hours-row" id="day-sun">
+                    <span>Domingos (Mediodía y Noche)</span>
+                    <span class="hours-time">12:00–15:30 | 20:30–23:30 hs</span>
+                </div>
+                <div class="hours-row" id="day-mon-wed" style="opacity: 0.65;">
+                    <span>Lunes, Martes y Miércoles</span>
+                    <span class="hours-time">Cerrado</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7. MAPA DUAL: SALÓN (SANTAMARINA 241) / TAKE AWAY (DARDO ROCHA 1484) -->
+        <article class="map-card" aria-label="Ubicación en Monte Grande">
+            <div>
+                <h2 class="section-title">Ubicación · Monte Grande</h2>
+                <span class="section-sub">Esteban Echeverría, Provincia de Buenos Aires</span>
+            </div>
+
+            <div class="map-tabs" role="tablist">
+                <button type="button" class="map-tab-btn active" onclick="switchMap('salon', this)">Salón · Santamarina 241</button>
+                <button type="button" class="map-tab-btn" onclick="switchMap('takeaway', this)">Para Llevar · Dardo Rocha 1484</button>
+            </div>
+
+            <p class="map-address-line" id="mapAddressText">
+                📍 Av. Enrique Santamarina 241, B1842 Monte Grande (Solo con reservas)
+            </p>
+
+            <div class="map-viewport">
+                <iframe
+                    id="bmMapFrame"
+                    title="Mapa Buenos Muchachos Monte Grande"
+                    src="https://maps.google.com/maps?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires,+Argentina&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <a id="bmGpsLink" href="https://maps.google.com/?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="map-gps-btn" onclick="playHaptic()">
+                <span>Abrir ubicación en Google Maps</span>
+                <span>Abrir GPS ↗</span>
+            </a>
+        </article>
+
+        <!-- 8. REDES OFICIALES -->
+        <nav class="social-row" aria-label="Redes sociales y contacto">
+            <a href="https://www.instagram.com/buenos_muchachos.monte.grande" target="_blank" rel="noopener noreferrer" class="social-btn" onclick="playHaptic()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram · 114 mil</span>
+            </a>
+            <a href="https://www.facebook.com/p/Buenos-Muchachos-Parrilla-y-Ahumados-61551717735380/" target="_blank" rel="noopener noreferrer" class="social-btn" onclick="playHaptic()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook · 37 mil</span>
+            </a>
+            <a href="mailto:victor_beron@hotmail.com" class="social-btn" onclick="playHaptic()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>Email</span>
+            </a>
+        </nav>
+
+        <!-- 9. CIERRE HUMANO -->
+        <footer class="dream-footer">
+            <p class="dream-quote">
+                “Gracias a todos por visitarnos ! Detrás de cada negocio hay un sueño, y detrás de ese sueño están ustedes haciéndolo posible. ¡Gracias!”
+            </p>
+            <div class="footer-brand">Buenos Muchachos | Parrilla y Ahumados</div>
+            <p class="footer-meta">
+                Enrique Santamarina 241 (Salón) · Dardo Rocha 1484 (Para llevar)<br>
+                Monte Grande · Esteban Echeverría · WhatsApp: +54 9 11 2175-3489
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- BOTÓN FLOTANTE SMART-SCROLL -->
+    <a id="floatingWa" href="https://wa.me/5491121753489?text=Hola%20Buenos%20Muchachos!%20Quisiera%20consultar%20para%20reservar." target="_blank" rel="noopener noreferrer" class="floating-wa-wrap" aria-label="Reservar por WhatsApp" onclick="playHaptic()">
+        <span class="floating-wa-pill">Reservar</span>
+        <div class="floating-wa-circle">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </div>
+    </a>
+
+    <!-- LIGHTBOX MODAL DE FOTOS -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <div class="lightbox-card" onclick="event.stopPropagation()">
+            <div class="lightbox-top">
+                <span class="lightbox-counter" id="lbCounter">1 / 7</span>
+                <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="lightbox-media" id="lbTouchZone">
+                <button type="button" class="lb-arrow lb-prev" onclick="navLightbox(-1)" aria-label="Anterior">‹</button>
+                <img id="lbImg" src="" alt="Buenos Muchachos Monte Grande">
+                <button type="button" class="lb-arrow lb-next" onclick="navLightbox(1)" aria-label="Siguiente">›</button>
+            </div>
+            <div class="lightbox-caption" id="lbCaption"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MOTOR JS: GALERÍA, LIGHTBOX, REELS CON AUDIO OPCIONAL, HORARIO UTC-3 Y PAVESAS
+         ========================================================================== -->
+    <script>
+        const BASE_MEDIA = './media%20buenos%20muchachos/';
+
+        const photosData = [
+            { file: 'carnes.webp', caption: 'La mejor selección de carnes' },
+            { file: 'carnes2.webp', caption: 'Asado y vacío · Menú libre por pasos' },
+            { file: 'carnes3.webp', caption: 'Si te gustan los ahumados, esto es una fiesta' },
+            { file: 'carnes4.webp', caption: 'Vacío o asado de costilla?' },
+            { file: 'comensales3.webp', caption: 'Ideal para los que disfrutan comer rico, abundante y sin apuro' },
+            { file: 'restaurantecomensales.webp', caption: 'Enrique Santamarina 241, Monte Grande' },
+            { file: 'restaurantecomensales2.webp', caption: 'Los sábados tenemos cena show !' }
+        ];
+
+        let lbIndex = 0;
+
+        function renderPhotosStrip() {
+            const strip = document.getElementById('photosStrip');
+            if (!strip) return;
+            strip.innerHTML = photosData.map((item, idx) => `
+                <div class="photo-thumb-card" onclick="openLightbox(${idx})">
+                    <img src="${BASE_MEDIA}${item.file}" alt="${item.caption}" loading="lazy" decoding="async">
+                    <span class="photo-thumb-label">${item.caption}</span>
+                </div>
+            `).join('');
+        }
+
+        function openLightbox(idx) {
+            playHaptic();
+            lbIndex = idx;
+            updateLightbox();
+            document.getElementById('lightboxModal').classList.add('active');
+        }
+
+        function closeLightbox() {
+            playHaptic();
+            document.getElementById('lightboxModal').classList.remove('active');
+        }
+
+        function navLightbox(dir) {
+            playHaptic();
+            lbIndex = (lbIndex + dir + photosData.length) % photosData.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const item = photosData[lbIndex];
+            document.getElementById('lbImg').src = BASE_MEDIA + item.file;
+            document.getElementById('lbCounter').innerText = `${lbIndex + 1} / ${photosData.length}`;
+            document.getElementById('lbCaption').innerText = item.caption;
+        }
+
+        // Swipe en lightbox móvil + flechas teclado PC
+        let touchStartX = 0;
+        const lbTouchZone = document.getElementById('lbTouchZone');
+        if (lbTouchZone) {
+            lbTouchZone.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+            lbTouchZone.addEventListener('touchend', e => {
+                const diff = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(diff) > 40) navLightbox(diff < 0 ? 1 : -1);
+            });
+        }
+
+        window.addEventListener('keydown', e => {
+            const lb = document.getElementById('lightboxModal');
+            if (!lb || !lb.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+            if (e.key === 'ArrowRight') navLightbox(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // CONTROL DE REELS (INTERSECTION OBSERVER + AUDIO POR TARJETA)
+        function toggleReelMute(btn) {
+            playHaptic();
+            const card = btn.closest('.reel-card');
+            const vid = card ? card.querySelector('video') : null;
+            if (!vid) return;
+
+            const willUnmute = vid.muted;
+            document.querySelectorAll('.reel-video').forEach(v => { v.muted = true; });
+            document.querySelectorAll('.reel-mute-btn').forEach(b => { b.innerText = '🔇'; });
+
+            if (willUnmute) {
+                vid.muted = false;
+                vid.play().catch(() => {});
+                btn.innerText = '🔊';
+            }
+        }
+
+        if ('IntersectionObserver' in window) {
+            const vidObs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const v = entry.target;
+                    if (entry.isIntersecting) v.play().catch(() => {});
+                    else v.pause();
+                });
+            }, { threshold: 0.25 });
+            document.querySelectorAll('.reel-video').forEach(v => vidObs.observe(v));
+        }
+
+        // MAPA DUAL: SALÓN VS PARA LLEVAR
+        const locations = {
+            salon: {
+                addr: '📍 Av. Enrique Santamarina 241, B1842 Monte Grande (Solo con reservas)',
+                embed: 'https://maps.google.com/maps?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
+                gps: 'https://maps.google.com/?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires'
+            },
+            takeaway: {
+                addr: '🛍️ Dardo Rocha 1484, Monte Grande (Solo para llevar · Take Away)',
+                embed: 'https://maps.google.com/maps?q=Dardo+Rocha+1484,+Monte+Grande,+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
+                gps: 'https://maps.google.com/?q=Dardo+Rocha+1484,+Monte+Grande,+Buenos+Aires'
+            }
+        };
+
+        function switchMap(key, btn) {
+            playHaptic();
+            const loc = locations[key];
+            if (!loc) return;
+            document.querySelectorAll('.map-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            document.getElementById('mapAddressText').innerText = loc.addr;
+            document.getElementById('bmMapFrame').src = loc.embed;
+            document.getElementById('bmGpsLink').href = loc.gps;
+        }
+
+        // DETECTOR DE HORARIO EN VIVO (HORA ARGENTINA UTC-3)
+        function updateLiveHours() {
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const ba = new Date(utc - (3600000 * 3));
+            const day = ba.getDay(); // 0=Dom, 1=Lun, ..., 6=Sab
+            const timeVal = ba.getHours() + (ba.getMinutes() / 60);
+
+            let isOpen = false;
+            if (day === 4 || day === 5) {
+                document.getElementById('day-thu-fri').classList.add('today');
+                if (timeVal >= 21 && timeVal < 23) isOpen = true;
+            } else if (day === 6) {
+                document.getElementById('day-sat').classList.add('today');
+                if ((timeVal >= 12 && timeVal < 15) || (timeVal >= 21 && timeVal < 24)) isOpen = true;
+            } else if (day === 0) {
+                document.getElementById('day-sun').classList.add('today');
+                if ((timeVal >= 12 && timeVal < 15.5) || (timeVal >= 20.5 && timeVal < 23.5)) isOpen = true;
+            } else {
+                document.getElementById('day-mon-wed').classList.add('today');
+            }
+
+            const dot = document.getElementById('liveDot');
+            const topTxt = document.getElementById('liveStatusText');
+            const badge = document.getElementById('hoursBadge');
+
+            if (isOpen) {
+                dot.style.background = '#25D366';
+                dot.style.boxShadow = '0 0 8px #25D366';
+                topTxt.innerText = 'Abierto ahora · Santamarina 241';
+                badge.innerText = 'Abierto ahora';
+                badge.style.color = '#25D366';
+                badge.style.background = 'rgba(37, 211, 102, 0.14)';
+            } else {
+                dot.style.background = '#FD9202';
+                dot.style.boxShadow = '0 0 8px #FD9202';
+                const opensToday = (day === 0 || day === 4 || day === 5 || day === 6);
+                topTxt.innerText = opensToday ? 'Atendemos solo con reservas · Santamarina 241' : 'Cerrado hoy · Tomamos reservas por WhatsApp';
+                badge.innerText = opensToday ? 'Solo con reservas' : 'Cerrado';
+                badge.style.color = '#FDC202';
+                badge.style.background = 'rgba(253, 194, 2, 0.12)';
+            }
+        }
+
+        // SMART SCROLL PARA BOTÓN FLOTANTE
+        const heroAnchor = document.getElementById('heroReserveAnchor');
+        const floatingWa = document.getElementById('floatingWa');
+        if (heroAnchor && floatingWa && 'IntersectionObserver' in window) {
+            const heroObs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingWa.classList.remove('is-visible');
+                    } else {
+                        floatingWa.classList.toggle('is-visible', heroAnchor.getBoundingClientRect().top < 0);
+                    }
+                });
+            }, { threshold: 0 });
+            heroObs.observe(heroAnchor);
+        }
+
+        // CHISPAS / PAVESAS SUTILES EN CANVAS GPU
+        (function initEmbers() {
+            const canvas = document.getElementById('emberCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w = 0, h = 0;
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const colors = ['#FD1F01', '#FD9202', '#FDC202', '#FFD502'];
+            const sparks = Array.from({ length: 20 }, () => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 1.8 + 0.8,
+                vy: -(Math.random() * 0.45 + 0.2),
+                vx: (Math.random() - 0.5) * 0.25,
+                alpha: Math.random() * 0.55 + 0.2,
+                color: colors[Math.floor(Math.random() * colors.length)]
+            }));
+
+            function tick() {
+                if (!document.hidden) {
+                    ctx.clearRect(0, 0, w, h);
+                    for (let i = 0; i < sparks.length; i++) {
+                        const s = sparks[i];
+                        s.y += s.vy;
+                        s.x += s.vx + Math.sin(s.y * 0.02) * 0.12;
+                        if (s.y < -10) {
+                            s.y = h + 10;
+                            s.x = Math.random() * w;
+                        }
+                        ctx.globalAlpha = s.alpha;
+                        ctx.fillStyle = s.color;
+                        ctx.beginPath();
+                        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        })();
+
+        function playHaptic() {
+            if ('vibrate' in navigator) {
+                try { navigator.vibrate(8); } catch(e) {}
+            }
+        }
+
+        // PRECARGA EN SEGUNDO PLANO CON WEB WORKER
+        try {
+            const workerSrc = `self.onmessage=e=>{if(e.data&&e.data.urls){e.data.urls.forEach(u=>fetch(u,{mode:'no-cors'}).catch(()=>{}));}};`;
+            const w = new Worker(URL.createObjectURL(new Blob([workerSrc], { type: 'application/javascript' })));
+            const idle = window.requestIdleCallback || (cb => setTimeout(cb, 350));
+            idle(() => w.postMessage({
+                urls: photosData.map(p => BASE_MEDIA + p.file)
+            }));
+        } catch(e) {}
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPhotosStrip();
+            updateLiveHours();
+        });
+    </script>
+</body>
+</html>
