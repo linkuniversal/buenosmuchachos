@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Buenos Muchachos | Parrilla y Ahumados · Monte Grande</title>
-    <meta name="description" content="La mejor selección de carnes. Menú libre por pasos o a la carta en Enrique Santamarina 241, Monte Grande. También Para llevar - Take Away en Dardo Rocha 1484.">
+    <meta name="description" content="La mejor selección de carnes. Menú libre por pasos o a la carta en Enrique Santamarina 241, Monte Grande.">
 
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -329,7 +329,7 @@
         }
 
         /* ==========================================================================
-           7. HERO CTA RESERVAS WHATSAPP + BOTÓN TAKE AWAY
+           7. HERO CTA RESERVAS WHATSAPP + TELÉFONO SALÓN
            ========================================================================== */
         .cta-actions-stack {
             display: flex;
@@ -440,7 +440,7 @@
 
         .dual-branch-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 12px;
             width: 100%;
         }
@@ -889,7 +889,7 @@
         }
 
         /* ==========================================================================
-           11. HORARIOS EN VIVO + MAPA DUAL (SALÓN / TAKE AWAY)
+           11. HORARIOS EN VIVO + MAPA (ENRIQUE SANTAMARINA 241)
            ========================================================================== */
         .hours-card {
             background: var(--bm-iron);
@@ -948,6 +948,17 @@
             text-align: right;
             white-space: nowrap;
             flex-shrink: 0;
+        }
+
+        .hours-wait-note {
+            font-size: clamp(0.74rem, 2.5vw, 0.82rem);
+            font-weight: 700;
+            color: var(--bm-amber);
+            border-top: 1px dashed rgba(231, 189, 13, 0.25);
+            padding-top: 10px;
+            line-height: 1.42;
+            text-align: center;
+            text-wrap: balance;
         }
 
         .map-card {
@@ -1361,8 +1372,8 @@
     <!-- MARQUESINA SUPERIOR -->
     <div class="top-fire-ticker" aria-label="Destacados Buenos Muchachos">
         <div class="ticker-track">
-            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i> SOLO PARA LLEVAR: DARDO ROCHA 1484 <i class="ticker-spark">✦</i></span>
-            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i> SOLO PARA LLEVAR: DARDO ROCHA 1484 <i class="ticker-spark">✦</i></span>
+            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i></span>
+            <span>MENÚ LIBRE POR PASOS O A LA CARTA <i class="ticker-spark">✦</i> ENRIQUE SANTAMARINA 241 <i class="ticker-spark">✦</i> ATENDEMOS SOLO CON RESERVAS <i class="ticker-spark">✦</i> LOS SÁBADOS TENEMOS CENA SHOW <i class="ticker-spark">✦</i></span>
         </div>
     </div>
 
@@ -1398,12 +1409,11 @@
                 <div class="highlights-pills-row">
                     <span class="highlight-tag">🎉 Sábados Cena Show</span>
                     <span class="highlight-tag">☀️ Domingos Mediodía y Noche</span>
-                    <span class="highlight-tag">🛍️ Take Away</span>
                 </div>
             </div>
         </header>
 
-        <!-- 2. HERO CTA WHATSAPP RESERVAS + ACCESOS SALÓN / PARA LLEVAR -->
+        <!-- 2. HERO CTA WHATSAPP RESERVAS + ACCESO TELÉFONO SALÓN -->
         <section class="cta-actions-stack" id="heroReserveAnchor">
             <a href="https://wa.me/5491121753489?text=Hola%20Buenos%20Muchachos!%20Quisiera%20hacer%20una%20reserva." target="_blank" rel="noopener noreferrer" class="hero-reserve-btn" onclick="playHaptic()">
                 <div class="hero-btn-texts">
@@ -1417,17 +1427,6 @@
             </a>
 
             <div class="dual-branch-grid">
-                <a href="https://wa.me/5491121753489?text=Hola!%20Quiero%20pedir%20Para%20Llevar%20-%20Take%20Away." target="_blank" rel="noopener noreferrer" class="branch-card takeaway" onclick="playHaptic()">
-                    <div class="branch-top">
-                        <span class="branch-badge">🚨 Solo para llevar</span>
-                        <span style="color:var(--bm-amber); font-weight:800;">↗</span>
-                    </div>
-                    <div>
-                        <h3 class="branch-title">Take Away</h3>
-                        <p class="branch-addr">Dardo Rocha 1484, Monte Grande</p>
-                    </div>
-                </a>
-
                 <a href="tel:+5491121753489" class="branch-card salon" onclick="playHaptic()">
                     <div class="branch-top">
                         <span class="branch-badge">📞 Teléfono</span>
@@ -1547,41 +1546,39 @@
             <div class="hours-head">
                 <div>
                     <h2 class="section-title">Horarios de Atención</h2>
-                    <span class="section-sub">Abrimos los domingos al mediodía y a la noche!</span>
+                    <span class="section-sub">Abrimos jueves y viernes por la noche, y sábados y domingos mediodía y noche!</span>
                 </div>
-                <span class="hours-badge" id="hoursBadge">Comprobando...</span>
             </div>
 
             <div class="hours-list">
                 <div class="hours-row" id="day-thu-fri">
-                    <span>Jueves y Viernes</span>
-                    <span class="hours-time">21:00 a 23:00 hs</span>
+                    <span>Jueves y Viernes (Noche)</span>
+                    <span class="hours-time">20:30 a 23:00 hs</span>
                 </div>
                 <div class="hours-row" id="day-sat">
                     <span>Sábados (Cena Show)</span>
-                    <span class="hours-time">12:00–15:00 | 21:00–00:00 hs</span>
+                    <span class="hours-time">12:00–15:30 | 20:30–23:00 hs</span>
                 </div>
                 <div class="hours-row" id="day-sun">
                     <span>Domingos (Mediodía y Noche)</span>
-                    <span class="hours-time">12:00–15:30 | 20:30–23:30 hs</span>
+                    <span class="hours-time">12:00–15:30 | 20:30–23:00 hs</span>
                 </div>
                 <div class="hours-row" id="day-mon-wed" style="opacity: 0.65;">
                     <span>Lunes, Martes y Miércoles</span>
                     <span class="hours-time">Cerrado</span>
                 </div>
             </div>
+
+            <p class="hours-wait-note">
+                ⏳ Las reservas se esperan entre las 12:00 a 13:00 hs y de 20:30 a 21:30 hs para ocupar la mesa.
+            </p>
         </article>
 
-        <!-- 7. MAPA DUAL: SALÓN (SANTAMARINA 241) / TAKE AWAY (DARDO ROCHA 1484) -->
+        <!-- 7. MAPA: SALÓN (ENRIQUE SANTAMARINA 241) -->
         <article class="map-card" aria-label="Ubicación en Monte Grande">
             <div>
                 <h2 class="section-title">Ubicación · Monte Grande</h2>
                 <span class="section-sub">Esteban Echeverría, Provincia de Buenos Aires</span>
-            </div>
-
-            <div class="map-tabs" role="tablist">
-                <button type="button" class="map-tab-btn active" onclick="switchMap('salon', this)">Salón · Santamarina 241</button>
-                <button type="button" class="map-tab-btn" onclick="switchMap('takeaway', this)">Para Llevar · Dardo Rocha 1484</button>
             </div>
 
             <p class="map-address-line" id="mapAddressText">
@@ -1628,8 +1625,8 @@
             </p>
             <div class="footer-brand">Buenos Muchachos | Parrilla y Ahumados</div>
             <p class="footer-meta">
-                Enrique Santamarina 241 (Salón) · Dardo Rocha 1484 (Para llevar)<br>
-                Monte Grande · Esteban Echeverría · WhatsApp: +54 9 11 2175-3489
+                Enrique Santamarina 241 · Monte Grande · Esteban Echeverría<br>
+                WhatsApp: +54 9 11 2175-3489
             </p>
         </footer>
 
@@ -1759,31 +1756,6 @@
             document.querySelectorAll('.reel-video').forEach(v => vidObs.observe(v));
         }
 
-        // MAPA DUAL: SALÓN VS PARA LLEVAR
-        const locations = {
-            salon: {
-                addr: '📍 Av. Enrique Santamarina 241, B1842 Monte Grande (Solo con reservas)',
-                embed: 'https://maps.google.com/maps?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
-                gps: 'https://maps.google.com/?q=Av.+Enrique+Santamarina+241,+Monte+Grande,+Buenos+Aires'
-            },
-            takeaway: {
-                addr: '🛍️ Dardo Rocha 1484, Monte Grande (Solo para llevar · Take Away)',
-                embed: 'https://maps.google.com/maps?q=Dardo+Rocha+1484,+Monte+Grande,+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
-                gps: 'https://maps.google.com/?q=Dardo+Rocha+1484,+Monte+Grande,+Buenos+Aires'
-            }
-        };
-
-        function switchMap(key, btn) {
-            playHaptic();
-            const loc = locations[key];
-            if (!loc) return;
-            document.querySelectorAll('.map-tab-btn').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-            document.getElementById('mapAddressText').innerText = loc.addr;
-            document.getElementById('bmMapFrame').src = loc.embed;
-            document.getElementById('bmGpsLink').href = loc.gps;
-        }
-
         // DETECTOR DE HORARIO EN VIVO (HORA ARGENTINA UTC-3)
         function updateLiveHours() {
             const now = new Date();
@@ -1795,36 +1767,29 @@
             let isOpen = false;
             if (day === 4 || day === 5) {
                 document.getElementById('day-thu-fri').classList.add('today');
-                if (timeVal >= 21 && timeVal < 23) isOpen = true;
+                if (timeVal >= 20.5 && timeVal < 23) isOpen = true;
             } else if (day === 6) {
                 document.getElementById('day-sat').classList.add('today');
-                if ((timeVal >= 12 && timeVal < 15) || (timeVal >= 21 && timeVal < 24)) isOpen = true;
+                if ((timeVal >= 12 && timeVal < 15.5) || (timeVal >= 20.5 && timeVal < 23)) isOpen = true;
             } else if (day === 0) {
                 document.getElementById('day-sun').classList.add('today');
-                if ((timeVal >= 12 && timeVal < 15.5) || (timeVal >= 20.5 && timeVal < 23.5)) isOpen = true;
+                if ((timeVal >= 12 && timeVal < 15.5) || (timeVal >= 20.5 && timeVal < 23)) isOpen = true;
             } else {
                 document.getElementById('day-mon-wed').classList.add('today');
             }
 
             const dot = document.getElementById('liveDot');
             const topTxt = document.getElementById('liveStatusText');
-            const badge = document.getElementById('hoursBadge');
 
             if (isOpen) {
                 dot.style.background = '#25D366';
                 dot.style.boxShadow = '0 0 8px #25D366';
                 topTxt.innerText = 'Abierto ahora · Santamarina 241';
-                badge.innerText = 'Abierto ahora';
-                badge.style.color = '#25D366';
-                badge.style.background = 'rgba(37, 211, 102, 0.14)';
             } else {
                 dot.style.background = '#FD9202';
                 dot.style.boxShadow = '0 0 8px #FD9202';
                 const opensToday = (day === 0 || day === 4 || day === 5 || day === 6);
                 topTxt.innerText = opensToday ? 'Atendemos solo con reservas · Santamarina 241' : 'Cerrado hoy · Tomamos reservas por WhatsApp';
-                badge.innerText = opensToday ? 'Solo con reservas' : 'Cerrado';
-                badge.style.color = '#FDC202';
-                badge.style.background = 'rgba(253, 194, 2, 0.12)';
             }
         }
 
